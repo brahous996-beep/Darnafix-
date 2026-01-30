@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darnafix - خدمات منزلية</title>
+  <style>
+    body{font-family:Arial; margin:0; background:#f6f7fb; color:#111;}
+    header{background:#111827; color:#fff; padding:18px; text-align:center;}
+    .container{padding:16px; max-width:520px; margin:auto;}
+    .card{background:#fff; padding:16px; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.08); margin-top:14px;}
+    select,input,button{width:100%; padding:12px; margin-top:10px; border-radius:10px; border:1px solid #ddd; font-size:16px;}
+    button{background:#16a34a; color:#fff; border:none; font-weight:bold; cursor:pointer;}
+    button:hover{opacity:.95}
+    .small{font-size:13px; color:#555; margin-top:10px;}
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Darnafix</h2>
+    <p>اطلب خدمة منزلية في برج بوعريريج</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <label>اختار الخدمة</label>
+      <select id="service">
+        <option>سباك</option>
+        <option>كهربائي</option>
+        <option>دهان</option>
+        <option>نجار</option>
+        <option>تصليح سخان الماء</option>
+        <option>تصليح غسالة</option>
+        <option>تركيب كاميرات</option>
+        <option>تنظيف</option>
+      </select>
+
+      <label>البلدية</label>
+      <input id="baladia" placeholder="مثال: برج بوعريريج" value="برج بوعريريج" />
+
+      <label>الحي</label>
+      <input id="hay" placeholder="اكتب الحي تاعك" />
+
+      <label>وش راهي المشكلة؟</label>
+      <input id="desc" placeholder="مثال: تسرب ماء في الحمام" />
+
+      <button onclick="send()">اطلب الخدمة عبر واتساب</button>
+
+      <p class="small">رقم التواصل: 0781020863</p>
+    </div>
+  </div>
+
+  <script>
+    function send(){
+      const service = document.getElementById("service").value;
+      const baladia = document.getElementById("baladia").value;
+      const hay = document.getElementById("hay").value;
+      const desc = document.getElementById("desc").value;
+
+      const msg =
+`سلام، حبيت نطلب خدمة من Darnafix:
+- الخدمة: ${service}
+- البلدية: ${baladia}
+- الحي: ${hay}
+- التفاصيل: ${desc}`;
+
+      const phone = "213781020863";
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
