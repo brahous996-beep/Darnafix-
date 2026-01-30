@@ -3,3 +3,79 @@
 <meta name="robots" content="index, follow">
 <title>Darnafix - خدمات منزلية في برج بوعريريج</title># Darnafix-
 google-site-verification: google7299fa26d3301113.html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darnafix - تسجيل الحرفيين</title>
+  <style>
+    body {font-family: Arial; margin:0; background:#f6f7fb; color:#111;}
+    header {background:#111827; color:#fff; padding:18px; text-align:center;}
+    .container {padding:16px; max-width:520px; margin:auto;}
+    .card {background:#fff; padding:16px; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.08); margin-top:14px;}
+    input, select, button {width:100%; padding:12px; margin-top:10px; border-radius:10px; border:1px solid #ddd; font-size:16px;}
+    button {background:#16a34a; color:#fff; border:none; font-weight:bold; cursor:pointer;}
+    button:hover {opacity:.95}
+    .small {font-size:13px; color:#555; margin-top:10px;}
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>Darnafix</h2>
+  <p>تسجيل الحرفيين في برج بوعريريج</p>
+</header>
+
+<div class="container">
+  <div class="card">
+    <label>الاسم الكامل</label>
+    <input id="name" placeholder="مثال: أحمد محمد" />
+
+    <label>رقم الهاتف</label>
+    <input id="phone" placeholder="مثال: 0781234567" />
+
+    <label>نوع الخدمة</label>
+    <select id="service">
+      <option>سباك</option>
+      <option>كهربائي</option>
+      <option>نجار</option>
+      <option>دهان</option>
+      <option>تنظيف</option>
+      <option>تركيب كاميرات</option>
+    </select>
+
+    <label>الحي / المنطقة</label>
+    <input id="area" placeholder="مثال: حي بوعريريج" />
+
+    <button onclick="register()">سجل الآن</button>
+    <p class="small">كل التسجيلات تروح مباشرة على WhatsApp: 0781020863</p>
+  </div>
+</div>
+
+<script>
+function register() {
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const service = document.getElementById("service").value;
+  const area = document.getElementById("area").value;
+
+  if(!name || !phone || !service || !area){
+    alert("رجاءً عبي كل الحقول!");
+    return;
+  }
+
+  const msg = `سلام، حبيت نسجل كحرفي في Darnafix:
+- الاسم: ${name}
+- رقم الهاتف: ${phone}
+- الخدمة: ${service}
+- الحي: ${area}`;
+
+  const waNumber = "213781020863"; // رقمك مع +213 بدون صفر
+  const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+  window.open(waURL, "_blank");
+}
+</script>
+
+</body>
+</html>
